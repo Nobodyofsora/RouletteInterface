@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 public class Controller {
     @FXML
     private Label cell4;
+    
+    @FXML
+    private Label cell9;
 
     @FXML
     private Label cell5;
