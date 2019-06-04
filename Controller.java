@@ -2,36 +2,12 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 
 public class Controller {
     @FXML
-    private Label cell4;
+    private GridPane gridId;
     
-    @FXML
-    private Label cell9;
-
-    @FXML
-    private Label cell5;
-
-    @FXML
-    private Label cell2;
-
-    @FXML
-    private Label cell3;
-
-    @FXML
-    private Label cell8;
-
-    @FXML
-    private Label cell6;
-
-    @FXML
-    private Label cell7;
-
-    @FXML
-    private Label cell1;
-
     @FXML
     void 06a814(ActionEvent event) {}
 
