@@ -1,5 +1,6 @@
-package sample;
+package Application;
 
+import exerciseGames.Player;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,7 +19,8 @@ public class Roulette {
         return ballIsOn;
     }
 
-    int checkWin() throws Exception{
+    ArrayList<Players> checkWin() throws Exception{
+        ArrayList<Players> winningPlayers = new ArrayList<Players>();
         for (Players player : this.players) {
             int numbersPlayed = player.getBet();
             int number = this.ballIsOn;
@@ -91,8 +93,9 @@ public class Roulette {
                     default:
                         break;
                 }
+               if (player.win!=0) winningPlayers.add(player);
             }
-        return this.ballIsOn;
+        return winningPlayers;
     }
 
     void spinTheWheel (){

@@ -1,4 +1,4 @@
-package sample;
+package Application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -20,7 +20,10 @@ public class Controller {
     public void spin(){
         roulette.spinTheWheel();
         try {
-            roulette.checkWin();
+            ArrayList<Players> players=new ArrayList<Players>();
+            players=roulette.checkWin();
+            for (Players player : players)
+                System.out.println( player.getName() + "ha vinto!");
         } catch (Exception e) {
             System.out.println(e);
         }

@@ -1,4 +1,4 @@
-package sample;
+package Application;
 
 public class Players {
     private String name;
@@ -11,6 +11,10 @@ public class Players {
         this.name = name;
         this.credit = credit;
         this.win=0;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getBet() {
