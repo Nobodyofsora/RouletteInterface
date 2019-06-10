@@ -20,7 +20,7 @@ public class Controller {
     public void spin(){
         roulette.spinTheWheel();
         try {
-            ArrayList<Players> players=new ArrayList<Players>();
+            ArrayList<Players> players;
             players=roulette.checkWin();
             for (Players player : players)
                 System.out.println( player.getName() + "ha vinto!");
