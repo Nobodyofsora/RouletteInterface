@@ -9,13 +9,14 @@ import javafx.scene.layout.GridPane;
 import java.util.ArrayList;
 
 public class Controller {
-    ArrayList<Players> players = new ArrayList<Players>();
 
     @FXML
     private GridPane gridId;
 
-    Players player = new Players("Pippo", 300);
-    Roulette roulette = new Roulette(players);
+        ArrayList<Players> players = new ArrayList<Players>();
+        Players player = new Players("Pippo", 300);
+        Roulette roulette = new Roulette(players);
+
 
     public void chooseBet(MouseEvent event) {
         Label source = (Label) event.getSource();
@@ -66,12 +67,8 @@ public class Controller {
         roulette.spinTheWheel();
         //System.out.println("Funzione di spinTheWhell effettuato");
         try {
-            ArrayList<Players> players;
-            players = roulette.checkWin();
-            //System.out.println("Funzione checkWin effettuata");
-            for (Players player : players)
-                //System.out.println("Sono dentro al ciclo for");
-                System.out.println(player.getName() + " ha vinto!");
+            ArrayList<Players> players = roulette.checkWin();
+            System.out.println(players.get(0).getName() + " ha vinto!");
         } catch (Exception e) {
             System.out.println(e);
         }

@@ -6,6 +6,7 @@ public class Players {
     private int bet; // odd number: 37/ even number: 38 / number 0-36 / red / black
     private int moneyBet;
     public int win;
+    public boolean completedTurn=true;
 
     public Players(String name, double credit) {
         this.name = name;
