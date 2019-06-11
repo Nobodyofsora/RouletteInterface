@@ -15,9 +15,12 @@ public class Controller {
 
         ArrayList<Players> players = new ArrayList<Players>();
         Players player = new Players("Pippo", 300);
-        Roulette roulette = new Roulette(players);
 
-
+        public Roulette startingGame (){
+            players.add(player);
+            Roulette r = new Roulette(players);
+            return r;
+        }
     public void chooseBet(MouseEvent event) {
         Label source = (Label) event.getSource();
         player.setBet(Integer.parseInt(source.getText()));
@@ -64,8 +67,8 @@ public class Controller {
 
     @FXML
     private void spin(javafx.event.ActionEvent event){
-        roulette.spinTheWheel();
-        //System.out.println("Funzione di spinTheWhell effettuato");
+            Roulette roulette = this.startingGame();
+            roulette.spinTheWheel();
         try {
             ArrayList<Players> players = roulette.checkWin();
             System.out.println(players.get(0).getName() + " ha vinto!");
