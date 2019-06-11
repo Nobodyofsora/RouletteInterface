@@ -6,11 +6,11 @@ import java.util.Random;
 
 public class Roulette {
     private int ballIsOn;
-    //private double dealerCredit;
+    private double dealerCredit;
     private ArrayList<Players> players;
 
     Roulette(ArrayList<Players> players) {
-        //this.dealerCredit=0;
+        this.dealerCredit=0;
         this.players=players;
     }
 
