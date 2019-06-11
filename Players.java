@@ -17,13 +17,8 @@ public class Players {
         return name;
     }
 
-
     public int getBet() {
         return bet;
-    }
-
-    public void setCredit(double credit) {
-        this.credit = credit;
     }
 
     public void setBet(int bet) {
