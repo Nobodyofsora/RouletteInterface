@@ -1,6 +1,5 @@
-package Application;
+package sample;
 
-import exerciseGames.Player;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -24,77 +23,77 @@ public class Roulette {
         for (Players player : this.players) {
             int numbersPlayed = player.getBet();
             int number = this.ballIsOn;
-                if (numbersPlayed>= 0 && numbersPlayed <= 36) number = 0;
-                if (numbersPlayed == 37) number = 37;
-                if (numbersPlayed == 38) number = 38;
-                switch (number) {
-                    case 0:
-                        if (numbersPlayed == this.ballIsOn) {
-                            player.win = numbersPlayed;
-                            youWin(player, number);
-                        } else youLose(player);
-                        break;
-                    case 37: //odd
+            if (numbersPlayed>= 0 && numbersPlayed <= 36) number = 0;
+            if (numbersPlayed == 37) number = 37;
+            if (numbersPlayed == 38) number = 38;
+            switch (number) {
+                case 0:
+                    if (numbersPlayed == this.ballIsOn) {
+                        player.win = numbersPlayed;
+                        youWin(player, number);
+                    } else youLose(player);
+                    break;
+                case 37: //odd
+                    if (this.ballIsOn % 2 != 0) {
+                        player.win = numbersPlayed;
+                        youWin(player, number);
+                    } else youLose(player);
+                    break;
+                case 38: //even
+                    if (this.ballIsOn % 2 == 0) {
+                        player.win = numbersPlayed;
+                        youWin(player, number);
+                    } else youLose(player);
+                    break;
+                case 39: //red
+                    if (this.ballIsOn<=9)
                         if (this.ballIsOn % 2 != 0) {
                             player.win = numbersPlayed;
                             youWin(player, number);
                         } else youLose(player);
-                        break;
-                    case 38: //even
+                    else if (this.ballIsOn>10 && this.ballIsOn<=18)
+                        if (this.ballIsOn % 2 == 0) {
+                            player.win = numbersPlayed;
+                            youWin(player, number);
+                        }else youLose(player);
+                    else if (this.ballIsOn<=27)
+                        if (this.ballIsOn % 2 != 0) {
+                            player.win = numbersPlayed;
+                            youWin(player, number);
+                        }else youLose(player);
+                    else if (this.ballIsOn>28)
+                        if (this.ballIsOn % 2 == 0) {
+                            player.win = numbersPlayed;
+                            youWin(player, number);
+                        }else youLose(player);
+                    break;
+                case 40: //black
+                    if (this.ballIsOn<=10)
                         if (this.ballIsOn % 2 == 0) {
                             player.win = numbersPlayed;
                             youWin(player, number);
                         } else youLose(player);
-                        break;
-                    case 39: //red
-                        if (this.ballIsOn<=9)
-                            if (this.ballIsOn % 2 != 0) {
-                                player.win = numbersPlayed;
-                                youWin(player, number);
-                            } else youLose(player);
-                            else if (this.ballIsOn>10 && this.ballIsOn<=18)
-                            if (this.ballIsOn % 2 == 0) {
-                                player.win = numbersPlayed;
-                                youWin(player, number);
-                            }else youLose(player);
-                            else if (this.ballIsOn<=27)
-                                if (this.ballIsOn % 2 != 0) {
-                                    player.win = numbersPlayed;
-                                    youWin(player, number);
-                                }else youLose(player);
-                                else if (this.ballIsOn>28)
-                                    if (this.ballIsOn % 2 == 0) {
-                                        player.win = numbersPlayed;
-                                        youWin(player, number);
-                                    }else youLose(player);
-                        break;
-                    case 40: //black
-                        if (this.ballIsOn<=10)
-                            if (this.ballIsOn % 2 == 0) {
-                                player.win = numbersPlayed;
-                                youWin(player, number);
-                            } else youLose(player);
-                        else if (this.ballIsOn>10 && this.ballIsOn<=17)
-                            if (this.ballIsOn % 2 != 0) {
-                                player.win = numbersPlayed;
-                                youWin(player, number);
-                            }else youLose(player);
-                        else if (this.ballIsOn<=28)
-                            if (this.ballIsOn % 2 == 0) {
-                                player.win = numbersPlayed;
-                                youWin(player, number);
-                            }else youLose(player);
-                        else if (this.ballIsOn>28)
-                            if (this.ballIsOn % 2 != 0) {
-                                player.win = numbersPlayed;
-                                youWin(player, number);
-                            }else youLose(player);
-                        break;
-                    default:
-                        break;
-                }
-               if (player.win!=0) winningPlayers.add(player);
+                    else if (this.ballIsOn>10 && this.ballIsOn<=17)
+                        if (this.ballIsOn % 2 != 0) {
+                            player.win = numbersPlayed;
+                            youWin(player, number);
+                        }else youLose(player);
+                    else if (this.ballIsOn<=28)
+                        if (this.ballIsOn % 2 == 0) {
+                            player.win = numbersPlayed;
+                            youWin(player, number);
+                        }else youLose(player);
+                    else if (this.ballIsOn>28)
+                        if (this.ballIsOn % 2 != 0) {
+                            player.win = numbersPlayed;
+                            youWin(player, number);
+                        }else youLose(player);
+                    break;
+                default:
+                    break;
             }
+            if (player.win!=0) winningPlayers.add(player);
+        }
         return winningPlayers;
     }
 
@@ -112,8 +111,8 @@ public class Roulette {
             case 38:
             case 39:
             case 40:
-                    player.credit+= player.getMoneyBet()*2;
-                    break;
+                player.credit+= player.getMoneyBet()*2;
+                break;
             default:
                 break;
         }
