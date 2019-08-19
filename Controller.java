@@ -67,8 +67,8 @@ public class Controller {
 
     @FXML
     private void spin(javafx.event.ActionEvent event){
-            Roulette roulette = this.startingGame();
-            roulette.spinTheWheel();
+        Roulette roulette = this.startingGame();
+        roulette.spinTheWheel();
         try {
             ArrayList<Players> players = roulette.checkWin();
             System.out.println(players.get(0).getName() + " ha vinto!");

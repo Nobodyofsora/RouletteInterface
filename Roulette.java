@@ -14,10 +14,6 @@ public class Roulette {
         this.players=players;
     }
 
-    public int getBallIsOn() {
-        return ballIsOn;
-    }
-
     ArrayList<Players> checkWin() throws Exception{
         ArrayList<Players> winningPlayers = new ArrayList<Players>();
         for (Players player : this.players) {
