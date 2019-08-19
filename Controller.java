@@ -1,14 +1,24 @@
 package sample;
 
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.util.converter.NumberStringConverter;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Controller {
+    @FXML
+    private TextField displayedbet;
+
+    @FXML
+    private TextField displayedamount;
 
     @FXML
     private GridPane gridId;
@@ -24,13 +34,13 @@ public class Controller {
     public void chooseBet(MouseEvent event) {
         Label source = (Label) event.getSource();
         player.setBet(Integer.parseInt(source.getText()));
-        System.out.println(player.getBet());
+        displayedbet.setText(String.valueOf(player.getBet()));
     }
 
     public void chooseMoney(MouseEvent event) {
         Label source2 = (Label) event.getSource();
         player.setMoneyBet(Integer.parseInt(source2.getText()));
-        System.out.println(player.getMoneyBet());
+        displayedamount.setText(String.valueOf(player.getMoneyBet()));
     }
 
     public void chooseOdd(MouseEvent event) {
@@ -38,7 +48,7 @@ public class Controller {
         String s = source3.getText();
         if (s.equals("ODD"))
             player.setBet(37);
-        System.out.println(player.getBet());
+        displayedbet.setText("ODD");
     }
 
     public void chooseEven(MouseEvent event) {
@@ -46,7 +56,7 @@ public class Controller {
         String s = source3.getText();
         if (s.equals("EVEN"))
             player.setBet(38);
-        System.out.println(player.getBet());
+        displayedbet.setText("EVEN");
     }
 
     public void chooseRed(MouseEvent event) {
@@ -54,7 +64,7 @@ public class Controller {
         String s = source3.getText();
         if (s.equals("RED"))
             player.setBet(39);
-        System.out.println(player.getBet());
+        displayedbet.setText("RED");
     }
 
     public void chooseBlack(MouseEvent event) {
@@ -62,11 +72,11 @@ public class Controller {
         String s = source3.getText();
         if (s.equals("BLACK"))
             player.setBet(40);
-        System.out.println(player.getBet());
+        displayedbet.setText("BLACK");
     }
 
     @FXML
-    private void spin(javafx.event.ActionEvent event){
+    private void spin(ActionEvent event){
         Roulette roulette = this.startingGame();
         roulette.spinTheWheel();
         try {
