@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -25,6 +26,7 @@
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
@@ -247,7 +249,7 @@
          <children>
             <VBox prefHeight="150.0" prefWidth="50.0" style="-fx-border-color: white;">
                <children>
-                  <Label alignment="CENTER" onMouseClicked="#chooseEven" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="EVEN" textFill="WHITE">
+                  <Label fx:id="displayedbet" alignment="CENTER" onMouseClicked="#chooseEven" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="EVEN" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -255,7 +257,7 @@
                </children></VBox>
             <VBox prefHeight="150.0" prefWidth="50.0" style="-fx-border-color: white; -fx-background-color: red;">
                <children>
-                  <Label alignment="CENTER" onMouseClicked="#chooseRed" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="RED" textFill="WHITE">
+                  <Label fx:id="displayedbet" alignment="CENTER" onMouseClicked="#chooseRed" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="RED" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -263,7 +265,7 @@
                </children></VBox>
             <VBox prefHeight="150.0" prefWidth="50.0" style="-fx-border-color: white; -fx-background-color: black;">
                <children>
-                  <Label alignment="CENTER" onMouseClicked="#chooseBlack" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="BLACK" textFill="WHITE">
+                  <Label fx:id="displayedbet" alignment="CENTER" onMouseClicked="#chooseBlack" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="BLACK" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -271,7 +273,7 @@
                </children></VBox>
             <VBox prefHeight="150.0" prefWidth="50.0" style="-fx-border-color: white;">
                <children>
-                  <Label alignment="CENTER" onMouseClicked="#chooseOdd" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="ODD" textFill="WHITE">
+                  <Label fx:id="displayedbet" alignment="CENTER" onMouseClicked="#chooseOdd" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="ODD" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -280,7 +282,7 @@
          </children>
       </VBox>
       <Polyline fill="GREEN" points="100.0, -40.0, 249.0, 50.0, -50.0, 50.0, 100.0, -40.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="3" />
-      <Label alignment="BOTTOM_CENTER" onMouseClicked="#chooseBet" prefHeight="58.0" prefWidth="300.0" text="0" textFill="WHITE" GridPane.columnIndex="3">
+      <Label fx:id="displayedbet" alignment="BOTTOM_CENTER" onMouseClicked="#chooseBet" prefHeight="58.0" prefWidth="300.0" text="0" textFill="WHITE" GridPane.columnIndex="3">
          <font>
             <Font size="24.0" />
          </font>
@@ -295,41 +297,46 @@
          <Circle fill="WHITE" layoutX="100.0" layoutY="287.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
          <Circle fill="#e8e8e8" layoutX="100.0" layoutY="55.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
          <Circle fill="WHITE" layoutX="100.0" layoutY="403.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
-         <Label alignment="CENTER" layoutX="63.0" layoutY="19.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="1">
+         <Label fx:id="displayedamount" alignment="CENTER" layoutX="63.0" layoutY="19.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="1">
             <font>
                <Font size="50.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="63.0" layoutY="366.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="50">
+         <Label fx:id="displayedamount" alignment="CENTER" layoutX="63.0" layoutY="366.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="50">
             <font>
                <Font size="50.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="63.0" layoutY="251.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="25">
+         <Label fx:id="displayedamount" alignment="CENTER" layoutX="63.0" layoutY="251.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="25">
             <font>
                <Font size="50.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="63.0" layoutY="135.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="5">
+         <Label fx:id="displayedamount" alignment="CENTER" layoutX="63.0" layoutY="135.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="5">
             <font>
                <Font size="50.0" />
             </font>
          </Label>
             <Button layoutY="546.0" mnemonicParsing="false" onAction="#spin" prefHeight="60.0" prefWidth="200.0" text="Spin the wheel" />
+            <TextArea fx:id="displayednumber" layoutX="53.0" layoutY="480.0" prefHeight="26.0" prefWidth="94.0" text="NUMBER">
+               <font>
+                  <Font name="Verdana" size="10.0" />
+               </font>
+            </TextArea>
       </children>
    </Pane>
       <TextField fx:id="displayedbet" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-      <TextField fx:id="displayedamount" prefHeight="26.0" prefWidth="213.0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
-      <Label prefHeight="21.0" prefWidth="94.0" text="Bet number:" GridPane.rowIndex="8" />
-      <Label prefHeight="18.0" prefWidth="101.0" text="Bet amount:" GridPane.rowIndex="10" />
+      <TextField fx:id="displayedamount" prefHeight="26.0" prefWidth="213.0" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+      <Label prefHeight="21.0" prefWidth="94.0" text="Bet number:" textFill="WHITE" GridPane.rowIndex="8" />
+      <Label prefHeight="18.0" prefWidth="101.0" text="Bet amount:" GridPane.rowIndex="11" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="94.98307228088379">
          <font>
-            <Font size="27.0" />
+            <Font size="25.0" />
          </font>
       </Text>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="94.98307228088379" GridPane.columnIndex="7">
          <font>
-            <Font size="27.0" />
+            <Font size="25.0" />
          </font>
       </Text>
    </children>
