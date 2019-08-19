@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="gridId" alignment="center" hgap="10" prefHeight="900.0" prefWidth="1000.0" style="-fx-background-color: darkgreen; -fx-border-color: black;" vgap="10" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane fx:id="gridId" alignment="center" hgap="10" prefHeight="900.0" prefWidth="1000.0" style="-fx-background-color: darkgreen; -fx-border-color: black;" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -23,6 +24,8 @@
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
@@ -314,5 +317,9 @@
             <Button layoutY="546.0" mnemonicParsing="false" onAction="#spin" prefHeight="60.0" prefWidth="200.0" text="Spin the wheel" />
       </children>
    </Pane>
+      <TextField fx:id="displayedbet" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+      <TextField fx:id="displayedamount" prefHeight="26.0" prefWidth="213.0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+      <Label prefHeight="21.0" prefWidth="94.0" text="Bet number:" GridPane.rowIndex="8" />
+      <Label prefHeight="18.0" prefWidth="101.0" text="Bet amount:" GridPane.rowIndex="10" />
    </children>
 </GridPane>
