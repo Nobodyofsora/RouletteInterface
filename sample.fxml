@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -13,8 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1001.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1001.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <Button layoutX="388.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#startingGame" prefHeight="112.0" prefWidth="235.0" text="Start">
          <font>
@@ -329,7 +333,7 @@
                      </font>
                   </Label>
                   <Button layoutY="546.0" mnemonicParsing="false" onAction="#spin" prefHeight="60.0" prefWidth="200.0" text="Spin the wheel" />
-                  <Label fx:id="displayednumber" layoutX="76.0" layoutY="469.0" prefHeight="49.0" prefWidth="48.0" style="-fx-background-color: white;" text="10" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+                  <Label fx:id="displayednumber" alignment="CENTER" layoutX="68.0" layoutY="469.0" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: white;" text="10" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
                      <font>
                         <Font size="40.0" />
                      </font>
@@ -340,12 +344,12 @@
             <TextField fx:id="displayedamount" prefHeight="26.0" prefWidth="213.0" GridPane.columnIndex="3" GridPane.rowIndex="11" />
             <Label prefHeight="21.0" prefWidth="94.0" text="Bet number:" textFill="WHITE" GridPane.rowIndex="8" />
             <Label prefHeight="18.0" prefWidth="101.0" text="Bet amount:" textFill="WHITE" GridPane.rowIndex="11" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="94.98307228088379">
+            <Text fx:id="player1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="102.98307228088379">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="94.98307228088379" GridPane.columnIndex="7">
+            <Text fx:id="player2" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="116.98307228088379" GridPane.columnIndex="7">
                <font>
                   <Font size="25.0" />
                </font>
