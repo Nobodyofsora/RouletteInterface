@@ -1,25 +1,24 @@
 package sample;
 
-
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.util.converter.NumberStringConverter;
+import javafx.scene.text.Text;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.Optional;
 
 public class Controller {
     ArrayList<Players> players = new ArrayList<Players>();
-    int size=1;
+    int size = 2;
     Players currentPlayer;
+    Roulette roulette;
 
     @FXML
     private TextField displayedbet;
@@ -28,49 +27,87 @@ public class Controller {
     private TextField displayedamount;
 
     @FXML
-    private TextArea displayednumber;
+    private Label displayednumber;
+
+    @FXML
+    private Button start;
+
+    @FXML
+    private Text player1;
+
+    @FXML
+    private Text player2;
+
+    @FXML
+    private TextField credit1;
+
+    @FXML
+    private TextField credit2;
 
     @FXML
     private GridPane gridId;
 
-    public Hashtable<String, String> login(JFrame frame) {
-        Hashtable<String, String> logininformation = new Hashtable<String, String>();
-        JPanel panel = new JPanel(new BorderLayout(5, 5));
-        JPanel label = new JPanel(new GridLayout(0, 1, 2, 2));
-        label.add(new JLabel("Name", SwingConstants.RIGHT));
-        label.add(new JLabel("Credit", SwingConstants.RIGHT));
-        panel.add(label, BorderLayout.WEST);
-
-        JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
-        JTextField name = new JTextField();
-        controls.add(name);
-        JTextField credit = new JTextField();
-        controls.add(credit);
-        panel.add(controls, BorderLayout.CENTER);
-
-        JOptionPane.showMessageDialog(frame, panel, "login", JOptionPane.QUESTION_MESSAGE);
-
-        logininformation.put("user", name.getText());
-        logininformation.put("cred", credit.getText());
-        return logininformation;
+    @FXML
+    private void initialize() {
+        this.gridId.visibleProperty().setValue(false);
     }
-    private Roulette startingGame (){
+
+    public String login() {
+        TextInputDialog dialog = new TextInputDialog("name");
+        dialog.setTitle("Login Player");
+        dialog.setHeaderText(" Login information");
+        dialog.setContentText("Please enter your name:");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            return result.get();
+        }
+        return null;
+    }
+
+    public void end(Players player) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Roulette END GAME!");
+        alert.setHeaderText(null);
+        alert.setContentText("OH SORRY..." + player.getName() + "LOST!");
+
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void startingGame() {
         for (int i=0; i<this.size; i++) {
-            JFrame frame = new JFrame();
-            String name = login(frame).get("user");
-            int credit = Integer.parseInt(login(frame).get("cred"));
+            String name = login();
+            int credit = 100;
             Players p = new Players(name, credit);
             this.players.add(p);
+            if (i == 0) {
+                player1.setText(name);
+                credit1.setText(Integer.toString(credit));
+            }
+            else {
+                player2.setText(name);
+                credit2.setText(Integer.toString(credit));
+            }
         }
-        currentPlayer=currentPlayer=players.get(0);
-        Roulette r = new Roulette(players);
-        return r;
+        currentPlayer = players.get(0);
+        this.roulette = new Roulette(players);
+        this.gridId.visibleProperty().setValue(true);
+        return;
     }
-    private void switchPlayer(){
-        if (currentPlayer.equals(players.get(0)))
-            currentPlayer=players.get(1);
-        else currentPlayer=players.get(0);
+
+    private void switchPlayer() {
+        if (currentPlayer.equals(players.get(0))) {
+            currentPlayer = players.get(1);
+            player2.setStyle("-fx-fill: #ff0000");
+            player1.setStyle("-fx-fill: #000000");
+        }
+        else {
+            currentPlayer=players.get(0);
+            player1.setStyle("-fx-fill: #ff0000");
+            player2.setStyle("-fx-fill: #000000");
+        }
     }
+
     public void chooseBet(MouseEvent event) {
         Label source = (Label) event.getSource();
         currentPlayer.setBet(Integer.parseInt(source.getText()));
@@ -117,15 +154,18 @@ public class Controller {
 
     @FXML
     private void spin(ActionEvent event){
-        Roulette roulette= this.startingGame();
-        roulette.spinTheWheel();
-        displayednumber.setText(String.valueOf(roulette.ballIsOn));
+        this.roulette.spinTheWheel();
+        displayednumber.setText(String.valueOf(this.roulette.ballIsOn));
         try {
-            ArrayList<Players> players = roulette.checkWin();
-            System.out.println(players.get(0).getName() + " ha vinto!");
+            this.roulette.checkWin();
+            credit1.setText(Integer.toString(this.roulette.players.get(0).credit));
+            credit2.setText(Integer.toString(this.roulette.players.get(1).credit));
+            if (!this.roulette.losingPlayers.isEmpty()){
+                end(this.roulette.losingPlayers.get(0));
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
-
+        this.switchPlayer();
     }
 }
