@@ -5,16 +5,21 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Roulette {
-    private int ballIsOn;
+    public int ballIsOn;
     private double dealerCredit;
-    private ArrayList<Players> players;
+    public ArrayList<Players> players;
+    public ArrayList<Players> losingPlayers;
 
     Roulette(ArrayList<Players> players) {
         this.dealerCredit=0;
         this.players=players;
     }
 
-    ArrayList<Players> checkWin() throws Exception{
+    public int getBallIsOn() {
+        return ballIsOn;
+    }
+
+    public ArrayList<Players> checkWin() throws Exception{
         ArrayList<Players> winningPlayers = new ArrayList<Players>();
         for (Players player : this.players) {
             int numberPlayed = player.getBet();
@@ -22,6 +27,7 @@ public class Roulette {
             if (numberPlayed>= 0 && numberPlayed <= 36) number = 0;
             if (numberPlayed == 37) number = 37;
             if (numberPlayed == 38) number = 38;
+            //player.credit -= player.getMoneyBet();
             switch (number) {
                 case 0:
                     if (numberPlayed == this.ballIsOn) {
@@ -90,10 +96,10 @@ public class Roulette {
             }
             if (player.win == numberPlayed) winningPlayers.add(player);
         }
-        return winningPlayers;
+        return losingPlayers;
     }
 
-    void spinTheWheel (){
+    public void spinTheWheel (){
         Random random=new Random();
         this.ballIsOn=random.nextInt(36);
     }
@@ -112,10 +118,12 @@ public class Roulette {
             default:
                 break;
         }
-
     }
+
     private void youLose(Players player) {
         player.credit-= player.getMoneyBet();
+        if (player.credit<=0) this.losingPlayers.add(player); ;
         this.dealerCredit+=player.getMoneyBet();
     }
+
 }

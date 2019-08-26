@@ -102,7 +102,7 @@ public class Controller {
             player1.setStyle("-fx-fill: #000000");
         }
         else {
-            currentPlayer=players.get(0);
+            currentPlayer = players.get(0);
             player1.setStyle("-fx-fill: #ff0000");
             player2.setStyle("-fx-fill: #000000");
         }
@@ -158,8 +158,9 @@ public class Controller {
         displayednumber.setText(String.valueOf(this.roulette.ballIsOn));
         try {
             this.roulette.checkWin();
-            credit1.setText(Integer.toString(this.roulette.players.get(0).credit));
-            credit2.setText(Integer.toString(this.roulette.players.get(1).credit));
+            if (currentPlayer.equals(this.roulette.players.get(0)))
+                credit1.setText(Integer.toString(this.roulette.players.get(0).credit));
+            else credit2.setText(Integer.toString(this.roulette.players.get(1).credit));
             if (!this.roulette.losingPlayers.isEmpty()){
                 end(this.roulette.losingPlayers.get(0));
             }
