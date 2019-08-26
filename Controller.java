@@ -96,7 +96,7 @@ public class Controller {
     }
 
     private void switchPlayer() {
-        if (currentPlayer.equals(players.get(0))) {
+        if (currentPlayer.getName().equals(players.get(0).getName())) {
             currentPlayer = players.get(1);
             player2.setStyle("-fx-fill: #ff0000");
             player1.setStyle("-fx-fill: #000000");
@@ -155,10 +155,10 @@ public class Controller {
     @FXML
     private void spin(ActionEvent event){
         this.roulette.spinTheWheel();
-        displayednumber.setText(String.valueOf(this.roulette.ballIsOn));
+        displayednumber.setText(String.valueOf(this.roulette.getBallIsOn()));
         try {
             this.roulette.checkWin();
-            if (currentPlayer.equals(this.roulette.players.get(0)))
+            if (currentPlayer.getName().equals(this.roulette.players.get(0).getName()))
                 credit1.setText(Integer.toString(this.roulette.players.get(0).credit));
             else credit2.setText(Integer.toString(this.roulette.players.get(1).credit));
             if (!this.roulette.losingPlayers.isEmpty()){

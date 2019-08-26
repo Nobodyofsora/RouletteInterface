@@ -319,7 +319,7 @@
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="26.0" layoutY="367.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="50">
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="367.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="50">
                      <font>
                         <Font size="50.0" />
                      </font>
@@ -329,7 +329,7 @@
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="26.0" layoutY="136.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="5">
+                  <Label alignment="CENTER" layoutX="26.0" layoutY="135.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="5">
                      <font>
                         <Font size="50.0" />
                      </font>

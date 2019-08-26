@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Roulette {
-    public int ballIsOn;
+    private int ballIsOn;
     private double dealerCredit;
     public ArrayList<Players> players;
     public ArrayList<Players> losingPlayers;
