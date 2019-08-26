@@ -351,13 +351,13 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField prefHeight="26.0" prefWidth="88.0" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <TextField fx:id="credit1" prefHeight="26.0" prefWidth="88.0" GridPane.rowIndex="2" GridPane.valignment="TOP" />
             <Label fx:id="displayednumber" alignment="CENTER" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: white;" text="10" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.valignment="CENTER">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <TextField prefHeight="26.0" prefWidth="88.0" GridPane.columnIndex="7" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <TextField fx:id="credit2" prefHeight="26.0" prefWidth="88.0" GridPane.columnIndex="7" GridPane.rowIndex="2" GridPane.valignment="TOP" />
          </children>
       </GridPane>
    </children>
