@@ -64,13 +64,23 @@ public class Controller {
         return null;
     }
 
-    public void end(Players player) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Roulette END GAME!");
-        alert.setHeaderText(null);
-        alert.setContentText("OH SORRY..." + player.getName() + "LOST!");
+    private void end(Players player) {
+        if (player.credit == 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Roulette END GAME!");
+            alert.setHeaderText(null);
+            alert.setContentText("OH SORRY..." + player.getName() + "LOST!");
 
-        alert.showAndWait();
+            alert.showAndWait();
+            startingGame();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Roulette");
+            alert.setHeaderText(null);
+            alert.setContentText("It's " + currentPlayer.getName() + "'s turn");
+
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -79,7 +89,7 @@ public class Controller {
             String name = login();
             int credit = 100;
             Players p = new Players(name, credit);
-            this.players.add(p);
+            this.players.add(i, p);
             if (i == 0) {
                 player1.setText(name);
                 credit1.setText(Integer.toString(credit));
@@ -92,17 +102,21 @@ public class Controller {
         currentPlayer = players.get(0);
         this.roulette = new Roulette(players);
         this.gridId.visibleProperty().setValue(true);
-        return;
+        this.displayedbet.setText("");
+        this.displayedamount.setText("");
+        this.displayednumber.setText("");
     }
 
     private void switchPlayer() {
-        if (currentPlayer.getName().equals(players.get(0).getName())) {
-            currentPlayer = players.get(1);
+        if (currentPlayer.getName().equals(this.roulette.players.get(0).getName())) {
+            this.roulette.players.set(0, currentPlayer);
+            currentPlayer = this.roulette.players.get(1);
             player2.setStyle("-fx-fill: #ff0000");
             player1.setStyle("-fx-fill: #000000");
         }
         else {
-            currentPlayer = players.get(0);
+            this.roulette.players.set(1, currentPlayer);
+            currentPlayer = this.roulette.players.get(0);
             player1.setStyle("-fx-fill: #ff0000");
             player2.setStyle("-fx-fill: #000000");
         }
@@ -157,16 +171,14 @@ public class Controller {
         this.roulette.spinTheWheel();
         displayednumber.setText(String.valueOf(this.roulette.getBallIsOn()));
         try {
-            this.roulette.checkWin();
+            this.roulette.checkWin(currentPlayer);
             if (currentPlayer.getName().equals(this.roulette.players.get(0).getName()))
                 credit1.setText(Integer.toString(this.roulette.players.get(0).credit));
             else credit2.setText(Integer.toString(this.roulette.players.get(1).credit));
-            if (!this.roulette.losingPlayers.isEmpty()){
-                end(this.roulette.losingPlayers.get(0));
-            }
         } catch (Exception e) {
             System.out.println(e);
         }
         this.switchPlayer();
+        end(currentPlayer);
     }
 }

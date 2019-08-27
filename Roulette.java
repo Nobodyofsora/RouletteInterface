@@ -6,12 +6,9 @@ import java.util.Random;
 
 public class Roulette {
     private int ballIsOn;
-    private double dealerCredit;
     public ArrayList<Players> players;
-    public ArrayList<Players> losingPlayers;
 
     Roulette(ArrayList<Players> players) {
-        this.dealerCredit=0;
         this.players=players;
     }
 
@@ -19,21 +16,19 @@ public class Roulette {
         return ballIsOn;
     }
 
-    public ArrayList<Players> checkWin() throws Exception{
-        ArrayList<Players> winningPlayers = new ArrayList<Players>();
-        for (Players player : this.players) {
+    public void checkWin(Players player){
             int numberPlayed = player.getBet();
             int number = this.ballIsOn;
             if (numberPlayed>= 0 && numberPlayed <= 36) number = 0;
             if (numberPlayed == 37) number = 37;
             if (numberPlayed == 38) number = 38;
-            //player.credit -= player.getMoneyBet();
             switch (number) {
                 case 0:
                     if (numberPlayed == this.ballIsOn) {
                         player.win = numberPlayed;
                         youWin(player, number);
-                    } else youLose(player);
+                        }
+                    else youLose(player);
                     break;
                 case 37: //odd
                     if (this.ballIsOn % 2 != 0) {
@@ -94,17 +89,15 @@ public class Roulette {
                 default:
                     break;
             }
-            if (player.win == numberPlayed) winningPlayers.add(player);
-        }
-        return losingPlayers;
     }
 
-    public void spinTheWheel (){
+    void spinTheWheel (){
         Random random=new Random();
         this.ballIsOn=random.nextInt(36);
     }
 
     private void youWin(Players player, int switchCase){
+        player.credit -= player.getMoneyBet();
         switch(switchCase){
             case 0:
                 player.credit += player.getMoneyBet()*36;
@@ -121,9 +114,7 @@ public class Roulette {
     }
 
     private void youLose(Players player) {
-        player.credit-= player.getMoneyBet();
-        if (player.credit<=0) this.losingPlayers.add(player); ;
-        this.dealerCredit+=player.getMoneyBet();
+        player.credit -= player.getMoneyBet();
     }
 
 }
