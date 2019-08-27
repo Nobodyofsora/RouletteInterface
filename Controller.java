@@ -79,7 +79,7 @@ public class Controller {
             String name = login();
             int credit = 100;
             Players p = new Players(name, credit);
-            this.players.add(p);
+            this.players.add(i,p);
             if (i == 0) {
                 player1.setText(name);
                 credit1.setText(Integer.toString(credit));
@@ -96,13 +96,19 @@ public class Controller {
     }
 
     private void switchPlayer() {
-        if (currentPlayer.getName().equals(players.get(0).getName())) {
-            currentPlayer = players.get(1);
-            player2.setStyle("-fx-fill: #ff0000");
-            player1.setStyle("-fx-fill: #000000");
-        }
-        else {
-            currentPlayer = players.get(0);
+        int index = this.roulette.players.indexOf(currentPlayer);
+        if (currentPlayer.getName().equals(this.roulette.players.get(index).getName())) {
+            if (this.players.get(index + 1) != null) {
+                currentPlayer = this.roulette.players.get(index + 1);
+                player2.setStyle("-fx-fill: #ff0000");
+                player1.setStyle("-fx-fill: #000000");
+            } else {
+                currentPlayer = this.roulette.players.get(0);
+                player2.setStyle("-fx-fill: #ff0000");
+                player1.setStyle("-fx-fill: #000000");
+            }
+        } else {
+            currentPlayer = this.roulette.players.get(index);
             player1.setStyle("-fx-fill: #ff0000");
             player2.setStyle("-fx-fill: #000000");
         }
@@ -154,19 +160,19 @@ public class Controller {
 
     @FXML
     private void spin(ActionEvent event){
-        this.roulette.spinTheWheel();
-        displayednumber.setText(String.valueOf(this.roulette.getBallIsOn()));
         try {
-            this.roulette.checkWin();
+            this.roulette.spinTheWheel();
+            displayednumber.setText(String.valueOf(this.roulette.getBallIsOn()));
+            ArrayList<Players> youLost = this.roulette.checkWin();
             if (currentPlayer.getName().equals(this.roulette.players.get(0).getName()))
                 credit1.setText(Integer.toString(this.roulette.players.get(0).credit));
             else credit2.setText(Integer.toString(this.roulette.players.get(1).credit));
-            if (!this.roulette.losingPlayers.isEmpty()){
-                end(this.roulette.losingPlayers.get(0));
-            }
+            if (!youLost.isEmpty())
+                end(youLost.get(0));
+            currentPlayer.completedTurn=true;
+            this.switchPlayer();
         } catch (Exception e) {
             System.out.println(e);
         }
-        this.switchPlayer();
     }
 }
