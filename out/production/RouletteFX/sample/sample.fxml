@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1001.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Button layoutX="388.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#startingGame" prefHeight="112.0" prefWidth="235.0" text="Start">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <GridPane fx:id="gridId" alignment="center" hgap="10" prefHeight="900.0" prefWidth="1000.0" style="-fx-background-color: darkgreen; -fx-border-color: black;" vgap="10">
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="26.0" minHeight="26.0" prefHeight="26.0" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <GridPane prefHeight="606.0" prefWidth="300.0" style="-fx-border-color: white; -fx-border-width: 3;" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="3" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="1" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="5" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-border-color: white; -fx-background-color: black; -fx-border-width: 2;" text="2" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="4" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="6" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="7" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="8" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="9" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="12" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="14" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="16" textFill="WHITE" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="18" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="19" textFill="WHITE" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="21" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="23" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-width: 2; -fx-border-color: white;" text="25" textFill="WHITE" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="27" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="30" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="32" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="34" textFill="WHITE" GridPane.rowIndex="11">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: red; -fx-border-color: white; -fx-border-width: 2;" text="36" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="11">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="11" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="10" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="13" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="15" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="17" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="20" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="22" textFill="WHITE" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="24" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="26" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="28" textFill="WHITE" GridPane.rowIndex="9">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="29" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="31" textFill="WHITE" GridPane.rowIndex="10">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="33" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#chooseBet" prefHeight="49.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;" text="35" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white; -fx-border-width: 3; -fx-background-color: green;" GridPane.rowIndex="6">
+               <children>
+                  <VBox prefHeight="150.0" prefWidth="50.0" style="-fx-border-color: white;">
+                     <children>
+                        <Label alignment="CENTER" onMouseClicked="#chooseEven" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="EVEN" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="150.0" prefWidth="50.0" style="-fx-border-color: white; -fx-background-color: red;">
+                     <children>
+                        <Label alignment="CENTER" onMouseClicked="#chooseRed" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="RED" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="150.0" prefWidth="50.0" style="-fx-border-color: white; -fx-background-color: black;">
+                     <children>
+                        <Label alignment="CENTER" onMouseClicked="#chooseBlack" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="BLACK" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="150.0" prefWidth="50.0" style="-fx-border-color: white;">
+                     <children>
+                        <Label alignment="CENTER" onMouseClicked="#chooseOdd" prefHeight="200.0" prefWidth="100.0" rotate="90.0" text="ODD" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <Polyline fill="GREEN" points="100.0, -40.0, 249.0, 50.0, -50.0, 50.0, 100.0, -40.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label alignment="BOTTOM_CENTER" onMouseClicked="#chooseBet" prefHeight="58.0" prefWidth="300.0" text="0" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="550.0" prefWidth="127.0" GridPane.columnIndex="7" GridPane.rowIndex="6">
+               <children>
+                  <Circle layoutX="64.0" layoutY="55.0" radius="55.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="RED" layoutX="63.0" layoutY="172.0" radius="55.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#06a814" layoutX="63.0" layoutY="288.0" radius="55.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#1a68b2" layoutX="63.0" layoutY="403.0" radius="55.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="WHITE" layoutX="63.0" layoutY="172.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="WHITE" layoutX="63.0" layoutY="288.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#e8e8e8" layoutX="64.0" layoutY="55.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="WHITE" layoutX="63.0" layoutY="403.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="19.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="1">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="367.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="50">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="26.0" layoutY="252.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="25">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="26.0" layoutY="135.0" onMouseClicked="#chooseMoney" prefHeight="58.0" prefWidth="74.0" text="5">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="-3.0" layoutY="489.0" mnemonicParsing="false" onAction="#spin" prefHeight="38.0" prefWidth="133.0" text="Spin the wheel" />
+               </children>
+            </Pane>
+            <TextField fx:id="displayedbet" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+            <TextField fx:id="displayedamount" prefHeight="26.0" prefWidth="213.0" GridPane.columnIndex="3" GridPane.rowIndex="18" />
+            <Label prefHeight="21.0" prefWidth="94.0" text="Bet number:" textFill="WHITE" GridPane.rowIndex="15" />
+            <Label prefHeight="18.0" prefWidth="101.0" text="Bet amount:" textFill="WHITE" GridPane.rowIndex="18" />
+            <Text fx:id="player1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER" wrappingWidth="102.98307228088379" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="player2" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="116.98307228088379" GridPane.columnIndex="7">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <TextField fx:id="credit1" prefHeight="26.0" prefWidth="88.0" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <Label fx:id="displayednumber" alignment="CENTER" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: white;" text="10" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <TextField fx:id="credit2" prefHeight="26.0" prefWidth="88.0" GridPane.columnIndex="7" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+         </children>
+      </GridPane>
+   </children>
+</Pane>
